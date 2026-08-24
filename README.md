@@ -21,10 +21,10 @@
 <sup>3</sup>University of Michigan ·
 <sup>4</sup>Shenzhen Institutes of Advanced Technology
 
-> **TL;DR:** SRL-MPC combines explicit shape-aware geometry, reinforcement
-> learning for online parameter adaptation, and HOCBF-MPC for control. It
-> navigates dense crowds of heterogeneous robots without reducing every shape
-> to a disc: RL tunes the planner, while MPC computes the actions.
+> **TL;DR:** SRL-MPC combines shape-aware high-order control barrier functions
+> (HOCBFs) with reinforcement learning for online MPC parameter adaptation,
+> enabling safe and efficient navigation of heterogeneous robot shapes in dense
+> crowds without geometry simplification or policy retraining.
 
 ## Overview
 
@@ -55,4 +55,4 @@ full collection is available in the
 
 ## Code
 
-The source code will be released upon publication. 
+The source code will be released upon acceptance of the paper. 
