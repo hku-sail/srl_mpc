@@ -26,6 +26,10 @@
 > enabling safe and efficient navigation of heterogeneous robot shapes in dense
 > crowds without geometry simplification or policy retraining.
 
+## News
+
+- Our paper has been accepted to NeurIPS 2026! 
+
 ## Overview
 
 SRL-MPC is a distributed navigation framework for heterogeneous robot crowds.
