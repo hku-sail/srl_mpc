@@ -1,0 +1,93 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" role="img" aria-labelledby="title desc">
+  <title id="title">Dense-scene success across robot counts</title>
+  <desc id="desc">Directly labeled slope chart comparing SRL-MPC, SARL, AVOCADO, ORCA, VO-polytope, and RL-RVO from 20 to 25 robots. SRL-MPC averages 91.0 plus or minus 2.6 percent at 20 robots and 86.7 plus or minus 0.6 percent at 25 robots.</desc>
+  <rect width="960" height="560" fill="#ffffff"/>
+  <g font-family="Noto Sans, Arial, sans-serif">
+    <text x="88" y="37" fill="#202b3d" font-size="21" font-weight="700">Dense-scene success across robot counts</text>
+    <text x="88" y="61" fill="#667085" font-size="14">Each line connects the same method from N = 20 to N = 25 · higher is better</text>
+
+    <rect x="88" y="82" width="784" height="402" fill="#ffffff" stroke="#d9e0e8"/>
+    <g stroke="#e5e9ef" stroke-width="1">
+      <path d="M88 100H872"/>
+      <path d="M88 168H872"/>
+      <path d="M88 236H872"/>
+      <path d="M88 304H872"/>
+      <path d="M88 372H872"/>
+      <path d="M88 440H872"/>
+    </g>
+    <g fill="#667085" font-size="13" text-anchor="end">
+      <text x="76" y="105">100</text>
+      <text x="76" y="173">80</text>
+      <text x="76" y="241">60</text>
+      <text x="76" y="309">40</text>
+      <text x="76" y="377">20</text>
+      <text x="76" y="445">0</text>
+    </g>
+    <text x="25" y="270" fill="#475467" font-size="14" text-anchor="middle" transform="rotate(-90 25 270)">Success rate (%)</text>
+
+    <g stroke="#cfd7e2" stroke-width="1.2" stroke-dasharray="4 5">
+      <path d="M268 100V440"/>
+      <path d="M642 100V440"/>
+    </g>
+    <g fill="#344054" font-size="15" font-weight="700" text-anchor="middle">
+      <text x="268" y="471">N = 20</text>
+      <text x="642" y="471">N = 25*</text>
+    </g>
+
+    <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M268 310.8L642 368.6" stroke="#2f8f70" stroke-width="3.2"/>
+      <path d="M268 314.2L642 402.6" stroke="#d5981f" stroke-width="3.2"/>
+      <path d="M268 341.4L642 416.2" stroke="#7b8491" stroke-width="3" stroke-dasharray="8 6"/>
+      <path d="M268 368.6L642 412.8" stroke="#b06b94" stroke-width="3" stroke-dasharray="3 5"/>
+      <path d="M268 399.2L642 436.6" stroke="#c8672e" stroke-width="3" stroke-dasharray="11 5 2 5"/>
+    </g>
+    <g fill="#ffffff" stroke-width="3">
+      <g stroke="#2f8f70"><path d="M268 304.8l6 11h-12z"/><path d="M642 362.6l6 11h-12z"/></g>
+      <g stroke="#d5981f"><circle cx="268" cy="314.2" r="5.5"/><circle cx="642" cy="402.6" r="5.5"/></g>
+      <g stroke="#7b8491"><circle cx="268" cy="341.4" r="5.5"/><circle cx="642" cy="416.2" r="5.5"/></g>
+      <g stroke="#b06b94"><rect x="262.5" y="363.1" width="11" height="11"/><rect x="636.5" y="407.3" width="11" height="11"/></g>
+      <g stroke="#c8672e"><path d="M268 393.2l6 6-6 6-6-6z"/><path d="M642 430.6l6 6-6 6-6-6z"/></g>
+    </g>
+
+    <path d="M268 130.6L642 145.2" fill="none" stroke="#1769aa" stroke-width="7" stroke-linecap="round"/>
+    <g stroke="#1769aa" stroke-width="3">
+      <path d="M268 121.8V139.4M260 121.8H276M260 139.4H276"/>
+      <path d="M642 143.2V147.3M634 143.2H650M634 147.3H650"/>
+    </g>
+    <g fill="#1769aa" stroke="#ffffff" stroke-width="2.5"><circle cx="268" cy="130.6" r="7.5"/><circle cx="642" cy="145.2" r="7.5"/></g>
+    <text x="268" y="108" fill="#124f80" font-size="14" font-weight="700" text-anchor="middle">91.0 ± 2.6%</text>
+
+    <g font-size="12.5" font-weight="700" text-anchor="end">
+      <path d="M244 300L262 310.8" stroke="#2f8f70"/><text x="238" y="303" fill="#23745a">38%</text>
+      <path d="M244 324L262 314.2" stroke="#d5981f"/><text x="238" y="328" fill="#9a6a0d">37%</text>
+      <path d="M244 343L262 341.4" stroke="#7b8491"/><text x="238" y="347" fill="#5d6672">29%</text>
+      <path d="M244 369L262 368.6" stroke="#b06b94"/><text x="238" y="373" fill="#8f5276">21%</text>
+      <path d="M244 399L262 399.2" stroke="#c8672e"/><text x="238" y="403" fill="#9e4f25">12%</text>
+    </g>
+
+    <g font-size="13.5" font-weight="700">
+      <path d="M650 145.2H704" stroke="#1769aa" stroke-width="2"/>
+      <text x="713" y="150" fill="#124f80">SRL-MPC · 86.7 ± 0.6%</text>
+
+      <path d="M648 368.6L701 366" stroke="#2f8f70" stroke-width="1.5"/>
+      <text x="710" y="370" fill="#23745a">SARL · 21%</text>
+
+      <path d="M648 402.6L701 396" stroke="#d5981f" stroke-width="1.5"/>
+      <text x="710" y="400" fill="#9a6a0d">AVOCADO · 11%</text>
+
+      <path d="M648 412.8L701 417" stroke="#b06b94" stroke-width="1.5"/>
+      <text x="710" y="421" fill="#8f5276">VO-polytope · 8%</text>
+
+      <path d="M648 416.2L701 438" stroke="#7b8491" stroke-width="1.5"/>
+      <text x="710" y="442" fill="#5d6672">ORCA · 7%</text>
+
+      <path d="M648 436.6L701 459" stroke="#c8672e" stroke-width="1.5"/>
+      <text x="710" y="463" fill="#9e4f25">RL-RVO · 1%</text>
+    </g>
+
+    <g fill="#667085" font-size="12.5">
+      <text x="88" y="520">Whiskers show sample SD across three independently trained SRL-MPC policies.</text>
+      <text x="88" y="541">* N = 25 was used for SRL-MPC checkpoint selection; N = 20 was not.</text>
+    </g>
+  </g>
+</svg>

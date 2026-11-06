@@ -1,0 +1,372 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="SRL-MPC is a shape-aware reinforcement learned model predictive control framework for navigation in heterogeneous robot crowds."
+    />
+    <meta name="author" content="Ruihua Han, Rui Gao, Zhe Liu, Xinyi Wang, Chang Chen, Shuai Wang, Qi Hao, Jia Pan, Hengshuang Zhao" />
+    <meta property="og:title" content="SRL-MPC: Shape-Aware Reinforcement Learned Model Predictive Control" />
+    <meta property="og:description" content="Project results, architecture, and demonstrations for SRL-MPC." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://hku-sail.github.io/srl_mpc_project_page/" />
+    <meta property="og:image" content="https://hku-sail.github.io/srl_mpc_project_page/assets/demo/density/random-polygon-n25-poster.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="theme-color" content="#ffffff" />
+    <title>SRL-MPC: Shape-Aware Reinforcement Learned Model Predictive Control</title>
+    <link rel="icon" type="image/x-icon" href="assets/16113200.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Castoro&amp;family=Google+Sans:wght@400;500;700&amp;family=Noto+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="static/nerfies/css/bulma.min.css?v=657409a" />
+    <link rel="stylesheet" href="static/nerfies/css/index.css?v=657409a" />
+    <link rel="stylesheet" href="styles.css?v=cogact-header-20260903" />
+  </head>
+  <body>
+    <a class="skip-link" href="#content">Skip to content</a>
+
+    <header class="hero publication-header">
+      <div class="hero-body">
+        <div class="container is-max-desktop">
+          <div class="columns is-centered">
+            <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">
+            <span class="publication-title-name">SRL-MPC:</span>
+            <span class="publication-title-subtitle">Shape-Aware Reinforcement Learned Model Predictive Control</span>
+          </h1>
+          <div class="is-size-5 publication-authors" aria-label="Authors">
+            <span class="author-block"><a href="https://hanruihua.github.io/" target="_blank" rel="noopener noreferrer">Ruihua Han</a><sup class="affiliation-ref" aria-label="Affiliation 1">1</sup></span>
+            <span class="author-block"><a href="https://github.com/hfr2015" target="_blank" rel="noopener noreferrer">Rui Gao</a><sup class="affiliation-ref" aria-label="Affiliation 2">2</sup></span>
+            <span class="author-block"><a href="https://happinesslz.github.io/" target="_blank" rel="noopener noreferrer">Zhe Liu</a><sup class="affiliation-ref" aria-label="Affiliation 1">1</sup></span>
+            <span class="author-block"><a href="https://lawliet9666.github.io/" target="_blank" rel="noopener noreferrer">Xinyi Wang</a><sup class="affiliation-ref" aria-label="Affiliation 3">3</sup></span>
+            <span class="author-block"><a href="https://scholar.google.com/citations?hl=en&amp;user=1jx4TqkAAAAJ" target="_blank" rel="noopener noreferrer">Chang Chen</a><sup class="affiliation-ref" aria-label="Affiliation 1">1</sup></span>
+            <span class="author-block"><a href="https://siat-invs.com/" target="_blank" rel="noopener noreferrer">Shuai Wang</a><sup class="affiliation-ref" aria-label="Affiliation 4">4</sup></span>
+            <span class="author-block"><a href="https://cse.sustech.edu.cn/faculty/~haoq/" target="_blank" rel="noopener noreferrer">Qi Hao</a><sup class="affiliation-ref" aria-label="Affiliation 2">2</sup></span>
+            <span class="author-block"><a href="https://ai.hku.hk/people/academic-staff/jpan" target="_blank" rel="noopener noreferrer">Jia Pan</a><sup class="affiliation-ref" aria-label="Affiliation 1">1</sup></span>
+            <span class="author-block"><a href="https://hszhao.github.io" target="_blank" rel="noopener noreferrer">Hengshuang Zhao</a><sup class="affiliation-ref" aria-label="Affiliation 1">1</sup></span>
+          </div>
+          <div class="publication-affiliations" aria-label="Author affiliations">
+            <a class="affiliation-card" href="https://www.hku.hk/" target="_blank" rel="noopener noreferrer" aria-label="Affiliation 1: The University of Hong Kong">
+              <span class="affiliation-number" aria-hidden="true">1</span>
+              <span class="affiliation-logo"><img src="assets/institutions/hku.png" width="163" height="183" alt="The University of Hong Kong logo" decoding="async" /></span>
+            </a>
+            <a class="affiliation-card" href="https://www.sustech.edu.cn/en/" target="_blank" rel="noopener noreferrer" aria-label="Affiliation 2: Southern University of Science and Technology">
+              <span class="affiliation-number" aria-hidden="true">2</span>
+              <span class="affiliation-logo"><img src="assets/institutions/sustech.png" width="190" height="189" alt="Southern University of Science and Technology logo" decoding="async" /></span>
+            </a>
+            <a class="affiliation-card" href="https://umich.edu/" target="_blank" rel="noopener noreferrer" aria-label="Affiliation 3: University of Michigan">
+              <span class="affiliation-number" aria-hidden="true">3</span>
+              <span class="affiliation-logo"><img src="assets/institutions/umich.svg" width="157" height="168" alt="University of Michigan logo" decoding="async" /></span>
+            </a>
+            <a class="affiliation-card" href="https://www.siat.ac.cn/" target="_blank" rel="noopener noreferrer" aria-label="Affiliation 4: Shenzhen Institutes of Advanced Technology">
+              <span class="affiliation-number" aria-hidden="true">4</span>
+              <span class="affiliation-logo"><img src="assets/institutions/siat.png" width="330" height="329" alt="Shenzhen Institutes of Advanced Technology logo" decoding="async" /></span>
+            </a>
+          </div>
+          <nav class="publication-links" aria-label="Project resources">
+            <span class="link-block"><a class="external-link button is-normal is-dark is-rounded" href="#results"><span aria-hidden="true">▦</span><span>Results</span></a></span>
+            <span class="link-block"><a class="external-link button is-normal is-dark is-rounded" href="#demonstrations"><span aria-hidden="true">▶</span><span>Demos</span></a></span>
+            <span class="link-block"><a class="external-link button is-normal is-dark is-rounded" href="#ood"><span aria-hidden="true">◇</span><span>OOD Evaluation</span></a></span>
+            <span class="link-block"><a class="external-link button is-normal is-dark is-rounded" href="https://github.com/hanruihua/srl_mpc" target="_blank" rel="noopener noreferrer"><span aria-hidden="true">↗</span><span>Code (Coming Soon)</span></a></span>
+          </nav>
+          <p class="publication-tldr"><strong>TL;DR:</strong> SRL-MPC combines shape-aware high-order control barrier functions (HOCBFs) with reinforcement learning for online MPC parameter adaptation, enabling safe and efficient navigation of heterogeneous robot shapes in dense crowds without geometry simplification or policy retraining.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main id="content">
+      <section id="demonstrations" class="hero teaser">
+        <div class="container is-widescreen">
+          <div class="hero-body">
+          <div class="has-text-centered section-heading">
+            <h2 class="title is-3">Demonstrations</h2>
+            <p class="subtitle is-6">Trained once at 15 robots · evaluated without retraining · two random episodes per scene · 2× speed</p>
+          </div>
+          <div class="demo-group demo-group-train">
+            <div class="demo-group-heading">
+              <h3>Density Sweep</h3>
+              <span class="demo-group-tag">Training distribution</span>
+              <p>The policy is <strong>trained once</strong> with 15 random convex-polygon robots in a 10&nbsp;m&nbsp;&times;&nbsp;10&nbsp;m arena. The same policy is then run, <strong>without retraining</strong>, at 10, 15, 20, and 25 robots to show how it scales with crowd density.</p>
+            </div>
+            <div class="demo-grid" aria-label="Density sweep demonstrations">
+              <figure class="video-card density-card paired-video-card">
+                <div class="episode-pair" aria-label="Two random episodes with 10 robots">
+                  <div class="episode-clip"><div class="episode-label">Random 1</div><video aria-label="Random episode 1 with 10 robots" autoplay controls muted loop playsinline preload="metadata" poster="assets/demo/density/random-polygon-n10-poster.jpg"><source src="assets/demo/density/random-polygon-n10.mp4" type="video/mp4" />Your browser does not support HTML video.</video></div>
+                  <div class="episode-clip"><div class="episode-label">Random 2</div><video aria-label="Random episode 2 with 10 robots" autoplay controls muted loop playsinline preload="metadata" poster="assets/demo/density/random-polygon-n10-episode-b-poster.jpg"><source src="assets/demo/density/random-polygon-n10-episode-b.mp4" type="video/mp4" />Your browser does not support HTML video.</video></div>
+                </div>
+                <figcaption><strong>10 robots</strong></figcaption>
+              </figure>
+              <figure class="video-card density-card paired-video-card">
+                <div class="episode-pair" aria-label="Two random episodes with 15 robots">
+                  <div class="episode-clip"><div class="episode-label">Random 1</div><video aria-label="Random episode 1 with 15 robots" autoplay controls muted loop playsinline preload="metadata" poster="assets/demo/density/random-polygon-n15-poster.jpg"><source src="assets/demo/density/random-polygon-n15.mp4" type="video/mp4" />Your browser does not support HTML video.</video></div>
+                  <div class="episode-clip"><div class="episode-label">Random 2</div><video aria-label="Random episode 2 with 15 robots" autoplay controls muted loop playsinline preload="metadata" poster="assets/demo/density/random-polygon-n15-episode-b-poster.jpg"><source src="assets/demo/density/random-polygon-n15-episode-b.mp4" type="video/mp4" />Your browser does not support HTML video.</video></div>
+                </div>
+                <figcaption><strong>15 robots</strong><b>Training density</b></figcaption>
+              </figure>
+              <figure class="video-card density-card paired-video-card">
+                <div class="episode-pair" aria-label="Two random episodes with 20 robots">
+                  <div class="episode-clip"><div class="episode-label">Random 1</div><video aria-label="Random episode 1 with 20 robots" autoplay controls muted loop playsinline preload="metadata" poster="assets/demo/density/random-polygon-n20-poster.jpg"><source src="assets/demo/density/random-polygon-n20.mp4" type="video/mp4" />Your browser does not support HTML video.</video></div>
+                  <div class="episode-clip"><div class="episode-label">Random 2</div><video aria-label="Random episode 2 with 20 robots" autoplay controls muted loop playsinline preload="metadata" poster="assets/demo/density/random-polygon-n20-episode-b-poster.jpg"><source src="assets/demo/density/random-polygon-n20-episode-b.mp4" type="video/mp4" />Your browser does not support HTML video.</video></div>
+                </div>
+                <figcaption><strong>20 robots</strong></figcaption>
+              </figure>
+              <figure class="video-card density-card paired-video-card">
+                <div class="episode-pair" aria-label="Two random episodes with 25 robots">
+                  <div class="episode-clip"><div class="episode-label">Random 1</div><video aria-label="Random episode 1 with 25 robots" autoplay controls muted loop playsinline preload="metadata" poster="assets/demo/density/random-polygon-n25-poster.jpg"><source src="assets/demo/density/random-polygon-n25.mp4" type="video/mp4" />Your browser does not support HTML video.</video></div>
+                  <div class="episode-clip"><div class="episode-label">Random 2</div><video aria-label="Random episode 2 with 25 robots" autoplay controls muted loop playsinline preload="metadata" poster="assets/demo/density/random-polygon-n25-episode-b-poster.jpg"><source src="assets/demo/density/random-polygon-n25-episode-b.mp4" type="video/mp4" />Your browser does not support HTML video.</video></div>
+                </div>
+                <figcaption><strong>25 robots</strong></figcaption>
+              </figure>
+            </div>
+          </div>
+
+          <div class="demo-group demo-group-ood">
+            <div class="demo-group-heading">
+              <h3>Held-out Scenes</h3>
+              <span class="demo-group-tag">Out-of-distribution · zero-shot</span>
+              <p>None of these scenes appear in training. The same 15-robot policy is <strong>tested without retraining</strong> under six distribution shifts: nonconvex footprints, mixed cross geometry, circular polygon exchange, through traffic with moving obstacles, heterogeneous dynamics, and a dense crowd of circular robots.</p>
+            </div>
+            <div class="demo-grid" aria-label="Held-out scene demonstrations">
+              <figure class="video-card ood-card paired-video-card">
+                <div class="episode-pair" aria-label="Two random nonconvex-union episodes">
+                  <div class="episode-clip"><div class="episode-label">Random 1</div><video aria-label="Random nonconvex-union episode 1" autoplay controls muted loop playsinline preload="metadata" poster="assets/demo/ood/nonconvex-union-poster.jpg?v=fair-v3-20260815"><source src="assets/demo/ood/nonconvex-union.mp4?v=fair-v3-20260815" type="video/mp4" />Your browser does not support HTML video.</video></div>
+                  <div class="episode-clip"><div class="episode-label">Random 2</div><video aria-label="Random nonconvex-union episode 2" autoplay controls muted loop playsinline preload="metadata" poster="assets/demo/ood/nonconvex-union-episode-b-poster.jpg"><source src="assets/demo/ood/nonconvex-union-episode-b.mp4" type="video/mp4" />Your browser does not support HTML video.</video></div>
+                </div>
+                <figcaption><strong>Nonconvex union</strong></figcaption>
+              </figure>
+              <figure class="video-card ood-card paired-video-card">
+                <div class="episode-pair" aria-label="Two random cross-geometry episodes">
+                  <div class="episode-clip"><div class="episode-label">Random 1</div><video aria-label="Random cross-geometry episode 1" autoplay controls muted loop playsinline preload="metadata" poster="assets/demo/ood/cross-geometry-poster.jpg?v=fair-v3-20260815"><source src="assets/demo/ood/cross-geometry.mp4?v=fair-v3-20260815" type="video/mp4" />Your browser does not support HTML video.</video></div>
+                  <div class="episode-clip"><div class="episode-label">Random 2</div><video aria-label="Random cross-geometry episode 2" autoplay controls muted loop playsinline preload="metadata" poster="assets/demo/ood/cross-geometry-episode-b-poster.jpg"><source src="assets/demo/ood/cross-geometry-episode-b.mp4" type="video/mp4" />Your browser does not support HTML video.</video></div>
+                </div>
+                <figcaption><strong>Cross geometry</strong></figcaption>
+              </figure>
+              <figure class="video-card ood-card paired-video-card is-challenge">
+                <div class="episode-pair" aria-label="Two random circular-polygon-exchange episodes">
+                  <div class="episode-clip"><div class="episode-label">Random 1</div><video aria-label="Random circular-polygon-exchange episode 1" autoplay controls muted loop playsinline preload="metadata" poster="assets/demo/ood/circular-exchange-poster.jpg?v=fair-v3-20260815"><source src="assets/demo/ood/circular-exchange.mp4?v=fair-v3-20260815" type="video/mp4" />Your browser does not support HTML video.</video></div>
+                  <div class="episode-clip"><div class="episode-label">Random 2</div><video aria-label="Random circular-polygon-exchange episode 2" autoplay controls muted loop playsinline preload="metadata" poster="assets/demo/ood/circular-exchange-episode-b-poster.jpg"><source src="assets/demo/ood/circular-exchange-episode-b.mp4" type="video/mp4" />Your browser does not support HTML video.</video></div>
+                </div>
+                <figcaption><strong>Circular polygon exchange</strong></figcaption>
+              </figure>
+              <figure class="video-card ood-card paired-video-card">
+                <div class="episode-pair" aria-label="Two random through-traffic episodes">
+                  <div class="episode-clip"><div class="episode-label">Random 1</div><video aria-label="Random through-traffic episode 1" autoplay controls muted loop playsinline preload="metadata" poster="assets/demo/ood/through-traffic-poster.jpg?v=fair-v3-20260815"><source src="assets/demo/ood/through-traffic.mp4?v=fair-v3-20260815" type="video/mp4" />Your browser does not support HTML video.</video></div>
+                  <div class="episode-clip"><div class="episode-label">Random 2</div><video aria-label="Random through-traffic episode 2" autoplay controls muted loop playsinline preload="metadata" poster="assets/demo/ood/through-traffic-episode-b-poster.jpg"><source src="assets/demo/ood/through-traffic-episode-b.mp4" type="video/mp4" />Your browser does not support HTML video.</video></div>
+                </div>
+                <figcaption><strong>Through traffic</strong></figcaption>
+              </figure>
+              <figure class="video-card ood-card paired-video-card">
+                <div class="episode-pair" aria-label="Two random heterogeneous-dynamics episodes">
+                  <div class="episode-clip"><div class="episode-label">Random 1</div><video aria-label="Random heterogeneous-dynamics episode 1" autoplay controls muted loop playsinline preload="metadata" poster="assets/demo/ood/heterogeneous-dynamics-poster.jpg?v=fair-v3-20260815"><source src="assets/demo/ood/heterogeneous-dynamics.mp4?v=fair-v3-20260815" type="video/mp4" />Your browser does not support HTML video.</video></div>
+                  <div class="episode-clip"><div class="episode-label">Random 2</div><video aria-label="Random heterogeneous-dynamics episode 2" autoplay controls muted loop playsinline preload="metadata" poster="assets/demo/ood/heterogeneous-dynamics-episode-b-poster.jpg"><source src="assets/demo/ood/heterogeneous-dynamics-episode-b.mp4" type="video/mp4" />Your browser does not support HTML video.</video></div>
+                </div>
+                <figcaption><strong>Heterogeneous dynamics</strong></figcaption>
+              </figure>
+              <figure class="video-card ood-card paired-video-card">
+                <div class="episode-pair" aria-label="Two random disc-crowd episodes">
+                  <div class="episode-clip"><div class="episode-label">Random 1</div><video aria-label="Random disc-crowd episode 1" autoplay controls muted loop playsinline preload="metadata" poster="assets/demo/ood/disc-crowd-poster.jpg"><source src="assets/demo/ood/disc-crowd.mp4" type="video/mp4" />Your browser does not support HTML video.</video></div>
+                  <div class="episode-clip"><div class="episode-label">Random 2</div><video aria-label="Random disc-crowd episode 2" autoplay controls muted loop playsinline preload="metadata" poster="assets/demo/ood/disc-crowd-episode-b-poster.jpg"><source src="assets/demo/ood/disc-crowd-episode-b.mp4" type="video/mp4" />Your browser does not support HTML video.</video></div>
+                </div>
+                <figcaption><span><strong>Disc crowd</strong><small>20 circular robots</small></span></figcaption>
+              </figure>
+            </div>
+          </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container is-max-desktop">
+          <div class="columns is-centered has-text-centered">
+            <div class="column is-four-fifths">
+              <h2 class="title is-3">Abstract</h2>
+              <div class="content has-text-justified abstract-copy">
+                <p>
+                  Safe and efficient shape-aware navigation in heterogeneous crowds and robot fleets remains challenging. Traditional approaches often assume homogeneous robots, sparse workspaces, simplified geometry, offline computation, or handcrafted parameters to make the problem tractable, which limits their deployment in dense crowd scenarios. Toward this end, we propose Shape-Aware Reinforcement Learned Model Predictive Control (SRL-MPC), a method for safe, efficient, and adaptive navigation in crowds with heterogeneous shapes without geometry simplification.
+                </p>
+                <p>
+                  SRL-MPC formulates high-order control barrier function residuals from geometric separation features based on support-function geometry. A reinforcement learning policy reads these local features and produces real-time MPC parameter updates, while the executed controls remain the solution of an explicit model-predictive optimization problem. Randomized crowd experiments with arbitrarily shaped robot fleets demonstrate strong effectiveness, scalability, and robustness, especially as crowd density increases.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section hero is-light section-divider">
+        <div class="container is-widescreen has-text-centered">
+          <h2 class="title is-3">Architecture</h2>
+          <figure class="figure-shell">
+            <img src="assets/architecture.png" alt="SRL-MPC architecture from crowd geometry through geometric separation features, reinforcement learned parameter adaptation, HOCBF-MPC, and robot navigation" />
+          </figure>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container is-max-desktop">
+          <div class="has-text-centered section-heading">
+            <h2 class="title is-3">Key Advantages and Features</h2>
+          </div>
+          <div class="feature-list content">
+            <p><strong>1. Shape-aware geometry:</strong> compact geometric separation features represent circular and convex-polygon bodies without reducing every robot to a disc.</p>
+            <p><strong>2. Adaptive planning:</strong> each learned policy updates path tracking, control effort, and safety-distance parameters from local crowd geometry.</p>
+            <p><strong>3. Model-based execution:</strong> reinforcement learning tunes the planner; the action is still produced by an explicit local MPC problem with bounded controls.</p>
+            <p><strong>4. Dense-scene robustness:</strong> independently trained policies use the same 15-robot training distribution and are evaluated in dense 20- and 25-robot scenes.</p>
+          </div>
+          <figure class="figure-shell method-figure">
+            <img src="assets/results/method-detail.png" alt="SRL-MPC reinforcement learning weight adapter architecture" />
+          </figure>
+        </div>
+      </section>
+
+      <section id="results" class="section hero is-light">
+        <div class="container is-max-desktop">
+          <div class="has-text-centered section-heading">
+            <p class="eyebrow">Multi-seed evaluation · 300 episodes per setting</p>
+            <h2 class="title is-3">Dense-scene Evaluation</h2>
+            <p class="subtitle is-6">Three independently trained policies, each evaluated for 100 episodes per dense setting. Values report mean ± sample SD across training seeds.</p>
+          </div>
+
+          <div class="result-highlight" aria-label="Primary dense-scene result">
+            <div class="result-highlight-value">
+              <span>25-robot success</span>
+              <strong>86.7%</strong>
+              <small>±0.6 percentage points across three policies*</small>
+            </div>
+            <div class="result-highlight-finding">
+              <span>Key comparison</span>
+              <strong>+65.7 pp</strong>
+              <p>above SARL at 21%, the strongest external baseline in the 25-robot setting.</p>
+            </div>
+          </div>
+
+          <div class="result-density-grid" aria-label="Dense-scene success summary">
+            <article class="density-result-card">
+              <span>N = 20</span>
+              <strong>91.0%</strong>
+              <small>±2.6 pp</small>
+              <p>20-robot success</p>
+            </article>
+            <article class="density-result-card is-emphasized">
+              <span>N = 25</span>
+              <strong>86.7%</strong>
+              <small>±0.6 pp</small>
+              <p>25-robot success*</p>
+            </article>
+            <article class="density-result-card">
+              <span>Dense macro</span>
+              <strong>88.8%</strong>
+              <small>±1.5 pp</small>
+              <p>mean over N = 20 and N = 25</p>
+            </article>
+          </div>
+
+          <figure class="chart-card dense-chart">
+            <img src="assets/results/success-vs-density.svg?v=direct-slope-20260821" alt="Directly labeled slope chart comparing success rates for SRL-MPC and five baselines as robot count increases from 20 to 25" />
+          </figure>
+
+          <div class="result-evidence-grid">
+            <section class="result-panel" aria-labelledby="baseline-comparison-heading">
+              <div class="result-panel-heading">
+                <h3 id="baseline-comparison-heading">25-robot baseline comparison</h3>
+                <span>Success rate</span>
+              </div>
+              <div class="table-container result-table-wrap">
+                <table class="table is-fullwidth is-hoverable result-table">
+                  <thead><tr><th>Method</th><th>Success</th></tr></thead>
+                  <tbody>
+                    <tr class="is-best"><td><strong>SRL-MPC</strong></td><td><strong>86.7 ± 0.6%*</strong></td></tr>
+                    <tr><td>SARL</td><td>21%</td></tr>
+                    <tr><td>AVOCADO</td><td>11%</td></tr>
+                    <tr><td>VO-polytope</td><td>8%</td></tr>
+                    <tr><td>ORCA</td><td>7%</td></tr>
+                    <tr><td>RL-RVO</td><td>1%</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </section>
+
+            <aside class="result-panel" aria-labelledby="evaluation-protocol-heading">
+              <div class="result-panel-heading">
+                <h3 id="evaluation-protocol-heading">Evaluation protocol</h3>
+                <span>At a glance</span>
+              </div>
+              <dl class="result-protocol-list">
+                <div><dt>10.34 ms</dt><dd>Mean controller time per robot at N = 25</dd></div>
+                <div><dt>15 robots</dt><dd>Training density used for every policy</dd></div>
+                <div><dt>3 policies</dt><dd>100 episodes each per reported setting</dd></div>
+              </dl>
+            </aside>
+          </div>
+
+          <aside class="result-caveat" aria-label="Reporting note">
+            <span>Reporting note</span>
+          </aside>
+        </div>
+      </section>
+
+      <section id="ood" class="section">
+        <div class="container is-widescreen">
+          <div class="has-text-centered section-heading">
+            <p class="eyebrow">Rebuttal evaluation · no retraining</p>
+            <h2 class="title is-3">Out-of-Distribution Evaluation</h2>
+            <p class="subtitle is-6">Three policies trained independently in the 15-robot random-convex-polygon setting are evaluated without retraining for 100 episodes each in five distribution shifts.</p>
+            <p class="ood-macro"><strong>77.5%</strong><span>±2.5 pp · OOD macro across five shifts</span></p>
+          </div>
+
+          <figure class="chart-card ood-chart">
+            <img src="assets/results/ood-success-heatmap.svg?v=multiseed-20260815" alt="Heatmap comparing six methods across five out-of-distribution scenarios using SRL-MPC averages over three training seeds" />
+          </figure>
+
+        </div>
+      </section>
+
+      <section id="platform" class="section hero is-light">
+        <div class="container is-max-desktop">
+          <div class="has-text-centered section-heading">
+            <p class="eyebrow">Preliminary deployment</p>
+            <h2 class="title is-3">Real-World Demonstration</h2>
+            <p class="subtitle is-6">A controlled indoor platform comparison of SRL-MPC with ORCA, distributed MPC, and manually tuned MPC.</p>
+          </div>
+          <figure class="platform-demo">
+            <div class="platform-video-frame">
+              <video autoplay controls muted loop playsinline preload="metadata" poster="assets/demo/real-world/platform-comparison-poster.jpg">
+                <source src="assets/demo/real-world/platform-comparison.mp4" type="video/mp4" />
+                Your browser does not support HTML video.
+              </video>
+            </div>
+            <figcaption>
+              <span><strong>Side-by-side platform comparison</strong><small>ORCA · Dist-MPC · Manual-MPC · SRL-MPC · 2× playback</small></span>
+              <b>Preliminary demo</b>
+            </figcaption>
+          </figure>
+          <aside class="platform-coming-soon" aria-label="Upcoming real-world demonstrations">
+            <span aria-hidden="true">Next</span>
+            <p><strong>More complex real-world demonstrations are coming soon.</strong><small>This page will be updated as the new scenarios become available.</small></p>
+          </aside>
+        </div>
+      </section>
+
+    </main>
+
+    <footer class="footer">
+      <div class="container is-max-desktop content has-text-centered">
+        <p>Website template adapted from <a href="https://nerfies.github.io/" target="_blank" rel="noopener noreferrer">Nerfies</a>. View the <a href="https://github.com/nerfies/nerfies.github.io" target="_blank" rel="noopener noreferrer">original source</a>, licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener noreferrer">CC BY-SA 4.0</a>.</p>
+      </div>
+    </footer>
+    <script>
+      document.querySelectorAll("video").forEach((video) => {
+        const useDoubleSpeed = () => {
+          video.defaultPlaybackRate = 2;
+          video.playbackRate = 2;
+        };
+        useDoubleSpeed();
+        video.addEventListener("loadedmetadata", useDoubleSpeed);
+      });
+    </script>
+  </body>
+</html>

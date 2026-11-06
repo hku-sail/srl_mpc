@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 590" role="img" aria-labelledby="title desc">
+  <title id="title">Out-of-distribution success-rate comparison</title>
+  <desc id="desc">Heatmap of success percentages for six methods across five out-of-distribution scenarios. The SRL-MPC row reports means and sample standard deviations across three independently trained policies. SRL-MPC is best in nonconvex union and heterogeneous dynamics.</desc>
+  <rect width="960" height="590" rx="18" fill="#ffffff"/>
+  <g font-family="Noto Sans, Arial, sans-serif">
+    <text x="28" y="43" fill="#283341" font-size="20" font-weight="700">Success rate (%) · SRL-MPC training-seed average</text>
+    <g fill="#485467" font-size="13" font-weight="600" text-anchor="middle">
+      <text x="280" y="88"><tspan x="280">Nonconvex</tspan><tspan x="280" dy="17">union</tspan></text>
+      <text x="420" y="88"><tspan x="420">Cross</tspan><tspan x="420" dy="17">geometry</tspan></text>
+      <text x="560" y="88"><tspan x="560">Circular</tspan><tspan x="560" dy="17">exchange</tspan></text>
+      <text x="700" y="88"><tspan x="700">Through</tspan><tspan x="700" dy="17">traffic</tspan></text>
+      <text x="840" y="88"><tspan x="840">Heterogeneous</tspan><tspan x="840" dy="17">dynamics</tspan></text>
+    </g>
+    <g fill="#303844" font-size="15" text-anchor="end">
+      <text x="190" y="156" font-weight="700">SRL-MPC</text><text x="190" y="214">ORCA</text><text x="190" y="272">AVOCADO</text>
+      <text x="190" y="330">VO-polytope</text><text x="190" y="388">SARL</text><text x="190" y="446">RL-RVO</text>
+    </g>
+
+    <g text-anchor="middle">
+      <g font-size="16" font-weight="700">
+        <rect x="210" y="120" width="140" height="58" fill="#0b4f8a"/><text x="280" y="147" fill="#fff">96.7</text>
+        <rect x="350" y="120" width="140" height="58" fill="#c6dbef"/><text x="420" y="147" fill="#102a43">59.3</text>
+        <rect x="490" y="120" width="140" height="58" fill="#c6dbef"/><text x="560" y="147" fill="#102a43">46.0</text>
+        <rect x="630" y="120" width="140" height="58" fill="#2b7bba"/><text x="700" y="147" fill="#fff">90.7</text>
+        <rect x="770" y="120" width="140" height="58" fill="#0b4f8a"/><text x="840" y="147" fill="#fff">95.0</text>
+      </g>
+      <g font-size="10.5" font-weight="600"><text x="280" y="167" fill="#dceeff">±0.6</text><text x="420" y="167" fill="#334e68">±10.8</text><text x="560" y="167" fill="#334e68">±0.0</text><text x="700" y="167" fill="#e7f3fb">±1.5</text><text x="840" y="167" fill="#dceeff">±1.7</text></g>
+
+      <g font-size="17" font-weight="700">
+        <g fill="#fff"><rect x="210" y="178" width="140" height="58" fill="#2b7bba"/><text x="280" y="214">83</text><rect x="350" y="178" width="140" height="58" fill="#72b2d8"/><text x="420" y="214" fill="#102a43">71</text><rect x="490" y="178" width="140" height="58" fill="#2b7bba"/><text x="560" y="214">91</text><rect x="630" y="178" width="140" height="58" fill="#2b7bba"/><text x="700" y="214">92</text><rect x="770" y="178" width="140" height="58" fill="#2b7bba"/><text x="840" y="214">88</text></g>
+        <g fill="#fff"><rect x="210" y="236" width="140" height="58" fill="#2b7bba"/><text x="280" y="272">90</text><rect x="350" y="236" width="140" height="58" fill="#72b2d8"/><text x="420" y="272" fill="#102a43">61</text><rect x="490" y="236" width="140" height="58" fill="#0b4f8a"/><text x="560" y="272">97</text><rect x="630" y="236" width="140" height="58" fill="#0b4f8a"/><text x="700" y="272">95</text><rect x="770" y="236" width="140" height="58" fill="#2b7bba"/><text x="840" y="272">85</text></g>
+        <g><rect x="210" y="294" width="140" height="58" fill="#eef5fb"/><text x="280" y="330" fill="#102a43">7</text><rect x="350" y="294" width="140" height="58" fill="#eef5fb"/><text x="420" y="330" fill="#102a43">6</text><rect x="490" y="294" width="140" height="58" fill="#eef5fb"/><text x="560" y="330" fill="#102a43">1</text><rect x="630" y="294" width="140" height="58" fill="#c6dbef"/><text x="700" y="330" fill="#102a43">44</text><rect x="770" y="294" width="140" height="58" fill="#eef5fb"/><text x="840" y="330" fill="#102a43">27</text></g>
+        <g><rect x="210" y="352" width="140" height="58" fill="#72b2d8"/><text x="280" y="388" fill="#102a43">72</text><rect x="350" y="352" width="140" height="58" fill="#c6dbef"/><text x="420" y="388" fill="#102a43">44</text><rect x="490" y="352" width="140" height="58" fill="#0b4f8a"/><text x="560" y="388" fill="#fff">100</text><rect x="630" y="352" width="140" height="58" fill="#c6dbef"/><text x="700" y="388" fill="#102a43">44</text><rect x="770" y="352" width="140" height="58" fill="#c6dbef"/><text x="840" y="388" fill="#102a43">49</text></g>
+        <g><rect x="210" y="410" width="140" height="58" fill="#c6dbef"/><text x="280" y="446" fill="#102a43">45</text><rect x="350" y="410" width="140" height="58" fill="#eef5fb"/><text x="420" y="446" fill="#102a43">17</text><rect x="490" y="410" width="140" height="58" fill="#eef5fb"/><text x="560" y="446" fill="#102a43">9</text><rect x="630" y="410" width="140" height="58" fill="#eef5fb"/><text x="700" y="446" fill="#102a43">37</text><rect x="770" y="410" width="140" height="58" fill="#72b2d8"/><text x="840" y="446" fill="#102a43">66</text></g>
+      </g>
+    </g>
+    <rect x="207" y="117" width="706" height="64" rx="7" fill="none" stroke="#172b4d" stroke-width="3"/>
+    <g fill="none" stroke="#e69f00" stroke-width="4"><rect x="212" y="122" width="136" height="54" rx="4"/><rect x="352" y="180" width="136" height="54" rx="4"/><rect x="492" y="354" width="136" height="54" rx="4"/><rect x="632" y="238" width="136" height="54" rx="4"/><rect x="772" y="122" width="136" height="54" rx="4"/></g>
+    <g fill="#4b5563" font-size="12.5"><text x="210" y="505">SRL-MPC: mean ± sample SD across 3 trained policies; 100 episodes per policy and scenario.</text><text x="210" y="531">Baselines: 100 episodes per method and scenario. Gold outline marks the best mean/value.</text><text x="210" y="557">SRL-MPC is best in 2 of 5 shifts and beats both learning baselines in 4 of 5.</text></g>
+  </g>
+</svg>
